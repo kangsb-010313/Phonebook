@@ -131,9 +131,13 @@ public class Ex01 {
 					
 					
 				case 4: //검색 => 키워드(이름) 입력시 해당 리스트 출력 기능
+					//trip => 문자열 양쪽 끝 공백 생략
+					//replace => 문자열 특정 문자 다른 문자로 변경
+					// chatAt => 문자열 특정 위치 한 글자 (출력)
 					System.out.println("<4.검색>");
+				    sc.nextLine(); 
 					System.out.print(">이름: ");
-					String searchName = sc.nextLine();
+					String searchName = sc.nextLine().trim(); //공백 생략
 					break;
 					
 					
