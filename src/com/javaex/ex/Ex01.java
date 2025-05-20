@@ -138,6 +138,24 @@ public class Ex01 {
 				    sc.nextLine(); 
 					System.out.print(">이름: ");
 					String searchName = sc.nextLine().trim(); //공백 생략
+					
+					//////////////////////////////////////////////////////
+				    boolean found = false; // 검색 결과 존재 여부
+
+				    for (int i = 0; i < pList.size(); i++) {
+				        Person p = pList.get(i);
+				        if (p.getName().contains(searchName)) { // 부분 일치 검색
+				            System.out.print((i + 1) + ".\t");
+				            p.showInfo();
+				            found = true;
+				        }
+				    }
+
+				    if (!found) {
+				        System.out.println("[검색 결과가 없습니다.]");
+				    }
+				    //////////////////////////////////////////////////////
+				    
 					break;
 					
 					
