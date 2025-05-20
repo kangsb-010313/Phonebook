@@ -58,7 +58,7 @@ public class Ex01 {
 			
 			switch(menuNo) {
 			
-				case 1:
+				case 1: //리스트 출력 (등록, 삭제 할 때마다 없데이트 돼서 출력 돼야함)
 					System.out.println("<1.리스트>");	
 					
 					for(int i=0; i<pList.size(); i++) {
@@ -104,13 +104,19 @@ public class Ex01 {
 					int deleteNo = sc.nextInt(); //삭제할 번호 입력 
 					
 					// remove 
-					pList.remove(deleteNo); //(1 ~ pList.size())
-					
+					if(deleteNo > 0 && deleteNo <= pList.size()) { //(1 ~ pList.size())
+					//방은 0부터인데,,,, 흠
+					//deleteNo = i => 1=0 2=1 3=2 4=3 1씩 차이남
+						pList.remove(deleteNo - 1); //유레카
+			
+					}else {
+						System.out.println("[번호를 다시 입력해 주세요.]");
+					}
+
 					// 파일 전체 저장 
 					Writer removefw = new FileWriter("/Users/kangsubin/Desktop/javaStudy/PhoneDB.txt");
 					BufferedWriter removebw = new BufferedWriter(removefw);
 					
-					// 리스트 불러오기
 					for(Person p : pList) {
 
 						removebw.write(p.getName() + "," + p.getHp() + "," + p.getCompany());
@@ -123,13 +129,13 @@ public class Ex01 {
 					removebw.close();
 					break;
 					
-				case 4: //키워드(이름) 입력시 해당 리스트 출력 기능
+				case 4: //검색 기능: 키워드(이름) 입력시 해당 리스트 출력 기능
 					System.out.println("<4.검색>");
 					System.out.print(">이름: ");
 					String searchName = sc.nextLine();
 					break;
 					
-				case 5:
+				case 5: //종료
 					System.out.println("");
 					System.out.println("******************************************");
 					System.out.println("*" + "\t\t" + "감사합니다" + "\t\t\t" + " *");
@@ -137,7 +143,7 @@ public class Ex01 {
 					run = false;
 					break;
 					
-				default:				
+				default: // 다른 번호 입력 시 재입력 
 					System.out.println("[다시 입력해 주세요.]");
 					break;
 					
