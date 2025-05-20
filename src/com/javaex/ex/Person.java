@@ -46,11 +46,7 @@ public class Person {
 		return "Person [name=" + name + ", hp=" + hp + ", company=" + company + "]";
 	}
 	public void showInfo() {
-
-			System.out.println(name + "\t" + hp + "\t" + company);
-
-		
+		System.out.println(name + "\t" + hp + "\t" + company);
 	}
-	
 	
 }
