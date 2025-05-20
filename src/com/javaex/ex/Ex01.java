@@ -101,11 +101,26 @@ public class Ex01 {
 				case 3: //입력 번호 정보 삭제 기능
 					System.out.println("<3.삭제>");
 					System.out.print(">번호: ");
-					int deleteNo = sc.nextInt(); //삭제할 번호 입력 (1 ~ pList.size())
-					//remove 
-					//파일 전체 저장 
+					int deleteNo = sc.nextInt(); //삭제할 번호 입력 
+					
+					// remove 
+					pList.remove(deleteNo); //(1 ~ pList.size())
+					
+					// 파일 전체 저장 
+					Writer removefw = new FileWriter("/Users/kangsubin/Desktop/javaStudy/PhoneDB.txt");
+					BufferedWriter removebw = new BufferedWriter(removefw);
+					
 					// 리스트 불러오기
+					for(Person p : pList) {
+
+						removebw.write(p.getName() + "," + p.getHp() + "," + p.getCompany());
+						removebw.newLine();
+						removebw.flush();
+					}
+					
 					System.out.println("[삭제되었습니다.]");
+					
+					removebw.close();
 					break;
 					
 				case 4: //키워드(이름) 입력시 해당 리스트 출력 기능
