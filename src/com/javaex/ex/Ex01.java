@@ -1,9 +1,12 @@
 package com.javaex.ex;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -14,7 +17,9 @@ public class Ex01 {
 		
 		List<Person> pList = new ArrayList<Person>();
 		
-		Reader fr = new FileReader("C:\\javaStudy\\PhoneDB.txt");
+		//학원 컴퓨터 경로 "C:\\javaStudy\\PhoneDB.txt"
+		//mac 경로 "/Users/kangsubin/Desktop/javaStudy/PhoneDB.txt"
+		Reader fr = new FileReader("/Users/kangsubin/Desktop/javaStudy/PhoneDB.txt");
 		BufferedReader br = new BufferedReader(fr);
 		
 		Scanner sc = new Scanner(System.in);
@@ -71,13 +76,35 @@ public class Ex01 {
 					String signHp = sc.nextLine();
 					System.out.print(">회사전화: ");
 					String signCompany = sc.nextLine();
+					
+					
+					//리스트 추가///////////////////////////////////
+					Person newP = new Person(signName, signHp, signCompany);
+					pList.add(newP);
+					
+					//파일에 저장///////////////////////////////////
+					Writer fw = new FileWriter("/Users/kangsubin/Desktop/javaStudy/PhoneDB.txt");
+					BufferedWriter bw = new BufferedWriter(fw);
+					
+					for(Person p : pList) {
+
+						bw.write(p.getName() + "," + p.getHp() + "," + p.getCompany());
+						bw.newLine();
+						bw.flush();
+					}
+					
 					System.out.println("[등록되었습니다.]");
+					
+					bw.close();
 					break;
 					
 				case 3: //입력 번호 정보 삭제 기능
 					System.out.println("<3.삭제>");
 					System.out.print(">번호: ");
-					int deleteNo = sc.nextInt();
+					int deleteNo = sc.nextInt(); //삭제할 번호 입력 (1 ~ pList.size())
+					//remove 
+					//파일 전체 저장 
+					// 리스트 불러오기
 					System.out.println("[삭제되었습니다.]");
 					break;
 					
@@ -90,7 +117,7 @@ public class Ex01 {
 				case 5:
 					System.out.println("");
 					System.out.println("******************************************");
-					System.out.println("*" + "\t\t" + "감사합니다" + "\t\t" + " *");
+					System.out.println("*" + "\t\t" + "감사합니다" + "\t\t\t" + " *");
 					System.out.println("******************************************");
 					run = false;
 					break;
