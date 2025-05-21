@@ -162,7 +162,7 @@ public class Ex01 {
 				case 5: //종료
 					System.out.println("");
 					System.out.println("******************************************");
-					System.out.println("*" + "\t\t" + "감사합니다" + "\t\t\t" + " *");
+					System.out.println("*" + "\t\t" + "감사합니다" + "\t\t" + " *");
 					System.out.println("******************************************");
 					run = false;
 					break;
