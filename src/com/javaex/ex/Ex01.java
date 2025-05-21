@@ -19,7 +19,7 @@ public class Ex01 {
 		
 		//학원 컴퓨터 경로 "C:\\javaStudy\\PhoneDB.txt"
 		//mac 경로 "/Users/kangsubin/Desktop/javaStudy/PhoneDB.txt"
-		Reader fr = new FileReader("C:\\javaStudy\\PhoneDB.txt");
+		Reader fr = new FileReader("/Users/kangsubin/Desktop/javaStudy/PhoneDB.txt");
 		BufferedReader br = new BufferedReader(fr);
 		
 		System.out.println("******************************************");
@@ -83,7 +83,7 @@ public class Ex01 {
 					pList.add(newP);
 					
 					//파일에 저장///////////////////////////////////
-					Writer fw = new FileWriter("C:\\javaStudy\\PhoneDB.txt");
+					Writer fw = new FileWriter("/Users/kangsubin/Desktop/javaStudy/PhoneDB.txt");
 					BufferedWriter bw = new BufferedWriter(fw);
 					
 					for(Person p : pList) {
@@ -116,7 +116,7 @@ public class Ex01 {
 					}
 
 					// 파일 전체 저장 
-					Writer removefw = new FileWriter("C:\\javaStudy\\PhoneDB.txt");
+					Writer removefw = new FileWriter("/Users/kangsubin/Desktop/javaStudy/PhoneDB.txt");
 					BufferedWriter removebw = new BufferedWriter(removefw);
 					
 					for(Person p : pList) {
