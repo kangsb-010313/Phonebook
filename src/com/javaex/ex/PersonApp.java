@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Ex01 {
+public class PersonApp {
 
 	public static void main(String[] args) throws IOException{
 		
